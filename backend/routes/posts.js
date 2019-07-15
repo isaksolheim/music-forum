@@ -7,4 +7,26 @@ router.route('/').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/add').post((req, res) => {
+  const title = req.body.title;
+  const author = req.body.author;
+  const content = req.body.content;
+  const comments = req.body.comments;
+  const votes = Number(req.body.votes);
+  const date = Date.parse(req.body.date);
+
+  const newPost = new Post({
+    title,
+    author,
+    content,
+    comments,
+    votes,
+    date
+  });
+
+  newPost.save()
+    .then(() => res.json('Post added!'))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 module.exports = router;
