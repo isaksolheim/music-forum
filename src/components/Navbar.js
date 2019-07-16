@@ -10,6 +10,7 @@ function Navbar(props) {
       <Link to="/">Home</Link>
       <Link to="/posts">Posts</Link>
       <Link to="/users">Users</Link>
+      <Link to="/register">Register</Link>
       {props.state.loggedIn ? loggedInText : <p>Logged out</p>}
     </nav>
   );
