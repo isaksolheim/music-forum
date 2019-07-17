@@ -7,6 +7,7 @@ import Landing from './components/Landing';
 import Posts from './components/Posts';
 import Users from './components/Users';
 import Register from './components/Register';
+import Post from './components/Post';
 
 class App extends React.Component {
   constructor(props) {
@@ -83,6 +84,9 @@ class App extends React.Component {
           )} />
           <Route path="/posts" exact render={(props) => (
             <Posts {...props} state={this.state} />
+          )} />
+          <Route path="/posts/:id" exact render={(props) => (
+            <Post {...props} state={this.state} />
           )} />
           <Route path="/users" exact render={(props) => (
             <Users {...props} state={this.state} />

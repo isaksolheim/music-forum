@@ -87,7 +87,7 @@ class Posts extends React.Component {
                 <div className="box votes">{post.votes}</div>
                 <div className="box picture">Picture</div>
                 <div className="box user">{post.author}</div>
-                <Link className="box title" to="/">{post.title}</Link>
+                <Link className="box title" to={`/posts/${post._id}`}>{post.title}</Link>
               </div>
             );
           })}
