@@ -33,7 +33,7 @@ class Post extends React.Component {
           <div className="user-date">
             <h1 className="title">{post.title}</h1>
             <div className="votes"><i className="fa fa-heart"></i>{post.votes}</div>
-            <div className="picture" />
+            <div className="picture"><i class="fa fa-user fa-3x"></i></div>
             <p className="author">{post.author}</p>
             <p className="date">{post.date}</p>
           </div>
