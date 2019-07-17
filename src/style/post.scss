@@ -1,0 +1,45 @@
+.post-container {
+  padding: 20px;
+ 
+  .user-date {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-gap: 5px;
+    grid-template-areas:
+    "votes title"
+    "picture author"
+    "picture date";
+    .picture {
+      grid-area: picture;
+      background-color: #444;
+      color: #fff;
+      border-radius: 5px;
+      padding: 10px;
+    }
+    .author {
+      grid-area: author;
+      color: #333;
+      margin: 0;
+    }
+    .date {
+      grid-area: date;
+      color: #333;
+      margin: 0px;
+      font-size: 13px;
+    }
+    .title {
+      grid-area: title;
+      font-weight: 300;
+      margin: 0;
+      font-size: 30px;
+    }
+
+    .votes { 
+      cursor: pointer;
+      margin-top: 5px;
+      font-size: 20px;
+      grid-area: votes;
+      text-align: center;
+    }
+  }
+}

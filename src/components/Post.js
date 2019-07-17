@@ -29,9 +29,14 @@ class Post extends React.Component {
     const post = this.getPost();
     if (post) {
       return(
-        <section>
-          <h1>{post.title}</h1>
-          <p>{post.author}</p>
+        <section className="post-container">
+          <div className="user-date">
+            <h1 className="title">{post.title}</h1>
+            <div className="votes"><i className="fa fa-heart"></i>{post.votes}</div>
+            <div className="picture" />
+            <p className="author">{post.author}</p>
+            <p className="date">{post.date}</p>
+          </div>
           <p>{post.content}</p>
         </section>
       );
