@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 class Posts extends React.Component {
   constructor(props) {
@@ -53,20 +54,44 @@ class Posts extends React.Component {
 
   render() {
     return(
-      <section>
-        <h1>Posts</h1>
-        <form onSubmit={this.submitHandler}>
-          <label>
-            Title:
-            <input type="text" name="title" onChange={this.titleHandler} />
-          </label>
-          <br />
-          <label>
-            Content
-            <textarea type="text" onChange={this.contentHandler}></textarea>
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
+      <section className="posts-container">
+        <div className="new-post">
+          <h1>Create post</h1>
+          <form onSubmit={this.submitHandler}>
+            <div className="row">
+              <div className="col-25">
+                <label>Title</label>
+              </div>
+              <div className="col-75">
+                <input type="text" name="title" onChange={this.titleHandler} placeholder="Title.." />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-25">
+                <label>Content</label>
+              </div>
+              <div className="col-75">
+                <textarea type="text" onChange={this.contentHandler} placeholder="Content.."></textarea>
+              </div>
+            </div>
+            <div className="row">
+              <input type="submit" value="Submit" />
+            </div>
+          </form>
+        </div>
+
+        <div className="posts">
+          {this.state.posts.map(post => {
+            return(
+              <div className="post" key={post._id}>
+                <div className="box votes">{post.votes}</div>
+                <div className="box picture">Picture</div>
+                <div className="box user">{post.author}</div>
+                <Link className="box title" to="/">{post.title}</Link>
+              </div>
+            );
+          })}
+        </div>
       </section>
     );
   }
