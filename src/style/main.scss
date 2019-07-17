@@ -1,4 +1,9 @@
 html, body {
   margin: 0;
   width: 100%;
+  font-family: sofia-pro-soft, sans-serif;
+  font-style: normal;
+  font-weight: 300;
 }
+
+@import './navbar.scss';
