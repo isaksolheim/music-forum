@@ -10,6 +10,7 @@ class Posts extends React.Component {
       posts: [],
       titleInput: '',
       contentInput: '',
+      addPost: false,
     }
 
     this.submitHandler = this.submitHandler.bind(this);
@@ -47,16 +48,27 @@ class Posts extends React.Component {
     this.setState({ contentInput: e.target.value });
   }
 
+  handleToggle = () => {
+    if (this.state.addPost) {
+      this.setState({ addPost: false });
+    } else {
+      this.setState({ addPost: true })
+    }
+  }
+
   componentDidMount() {
     axios.get('http://localhost:5000/posts')
       .then(res => this.setState({ posts: res.data }));
   }
 
   render() {
-    return(
-      <section className="posts-container">
-        <div className="new-post">
+    const createPost = (
+      <div className="new-post">
+        <div className="content">
           <h1>Create post</h1>
+          <div className="close-button" onClick={this.handleToggle}>
+            <i className="fa fa-window-close"></i>
+          </div>
           <form onSubmit={this.submitHandler}>
             <div className="row">
               <div className="col-25">
@@ -79,7 +91,11 @@ class Posts extends React.Component {
             </div>
           </form>
         </div>
-
+      </div>
+    );
+    return(
+      <section className="posts-container">
+        {this.state.addPost ? createPost : <div onClick={this.handleToggle} className="create-post-button">Create Post</div>}
         <div className="posts">
           {this.state.posts.map(post => {
             return(
