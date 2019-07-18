@@ -1,5 +1,9 @@
 nav {
   overflow: hidden;
+
+  .title {
+    margin-top: 8px;
+  }
   
   a {
     float: left;
@@ -23,17 +27,38 @@ nav {
   .icon:hover {
     background-color: #ccc;
   }
-
     
   @media screen and (max-width: 600px) {
     a:not(:first-child) {
       display: none;
     }
 
-    .icon {
-      padding: 14px 16px;
-      float: right;
+    .right-icons {
       display: block;
+      float: right;
+      padding: 14px 16px;
+    }
+
+    .profile {
+      display: inline-block;
+      cursor: pointer;
+      margin-right: 20px;
+
+      .account {
+        display: inline-block;
+        margin-right: 3px;
+        font-size: 17px;
+        cursor: default;
+      }
+
+      i {
+        display: inline-block;
+      }
+    }
+
+    .icon {
+      cursor: pointer;
+      display: inline-block;
     }
   }
 }
@@ -42,7 +67,7 @@ nav {
   nav.responsive {
     position: relative;
     
-    .icon {
+    .right-icons {
       position: absolute;
       right: 0;
       top: 0;
